@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin: Izvođači</title>
+    <link rel="stylesheet" href="../../dist/artists/artists.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">🎵 FestivalAdmin</div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Početna</a></li>
+        <li><a href="artists.html" class="active">Izvođači</a></li>
+        <li><a href="../events/events.html">Festivali</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1>🎸 Upravljanje Izvođačima</h1>
+
+      <div class="form-card">
+        <h3>✨ Dodaj Novog Izvođača</h3>
+        <div class="form-group">
+          <input type="text" id="novi-ime" placeholder="Ime benda" />
+          <input type="text" id="novi-zanr" placeholder="Žanr" />
+          <input type="text" id="novi-drzava" placeholder="Država" />
+          <button id="btn-create" class="btn-green">
+            <i class="fas fa-plus"></i> Sačuvaj
+          </button>
+        </div>
+      </div>
+
+      <hr />
+
+      <div id="artists-grid" class="grid-container">
+        <p>Učitavam...</p>
+      </div>
+    </div>
+
+    <div id="modal-edit" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-btn" onclick="zatvoriModale()">&times;</span>
+        <h2>✏️ Izmeni Izvođača</h2>
+        <input type="hidden" id="edit-id" /> <label>Ime:</label>
+        <input type="text" id="edit-ime" />
+
+        <label>Žanr:</label>
+        <input type="text" id="edit-zanr" />
+
+        <label>Država:</label>
+        <input type="text" id="edit-drzava" />
+
+        <button onclick="sacuvajIzmenu()" class="btn-blue">
+          Sačuvaj Promene
+        </button>
+      </div>
+    </div>
+
+    <div id="modal-link" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-btn" onclick="zatvoriModale()">&times;</span>
+        <h2>➕📅 Poveži sa Festivalom</h2>
+        <p>
+          Izaberi festival na kojem
+          <strong><span id="link-artist-name"></span></strong> nastupa:
+        </p>
+
+        <input type="hidden" id="link-artist-id" />
+
+        <select id="select-festival">
+          <option value="">-- Učitavam festivale... --</option>
+        </select>
+
+        <button onclick="sacuvajPovezivanje()" class="btn-purple">
+          Dodaj na Festival
+        </button>
+      </div>
+    </div>
+
+    <script src="artists.js"></script>
+  </body>
+</html>
